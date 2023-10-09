@@ -39,7 +39,7 @@
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "Click me";
             button1.UseVisualStyleBackColor = true;
             // 
             // comboBox1
@@ -54,8 +54,9 @@
             // 
             textBox1.Location = new Point(12, 101);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.Size = new Size(290, 27);
             textBox1.TabIndex = 2;
+            textBox1.Text = "Hello world";
             // 
             // Form1
             // 
@@ -66,6 +67,7 @@
             Controls.Add(comboBox1);
             Controls.Add(button1);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "My Form";
             ResumeLayout(false);
             PerformLayout();
