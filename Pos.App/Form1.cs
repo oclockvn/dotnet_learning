@@ -6,5 +6,12 @@ namespace Pos.App
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var name = textBox1.Text;
+            MessageBox.Show("Hello " + name);
+            textBox1.Text = "Goodbye";
+        }
     }
 }
