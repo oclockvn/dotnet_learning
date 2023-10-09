@@ -32,6 +32,10 @@
             comboBox1 = new ComboBox();
             textBox1 = new TextBox();
             lblDisplay = new Label();
+            listView1 = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
             SuspendLayout();
             // 
             // button1
@@ -70,11 +74,41 @@
             lblDisplay.TabIndex = 3;
             lblDisplay.Text = "Selected product";
             // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            listView1.FullRowSelect = true;
+            listView1.GridLines = true;
+            listView1.Location = new Point(12, 155);
+            listView1.MultiSelect = false;
+            listView1.Name = "listView1";
+            listView1.Size = new Size(937, 388);
+            listView1.TabIndex = 4;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            listView1.DoubleClick += listView1_DoubleClick;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Id";
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Name";
+            columnHeader2.Width = 400;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Price";
+            columnHeader3.TextAlign = HorizontalAlignment.Right;
+            columnHeader3.Width = 120;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1069, 665);
+            Controls.Add(listView1);
             Controls.Add(lblDisplay);
             Controls.Add(textBox1);
             Controls.Add(comboBox1);
@@ -93,5 +127,9 @@
         private ComboBox comboBox1;
         private TextBox textBox1;
         private Label lblDisplay;
+        private ListView listView1;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
     }
 }
