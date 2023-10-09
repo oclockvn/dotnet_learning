@@ -70,6 +70,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "My Form";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
