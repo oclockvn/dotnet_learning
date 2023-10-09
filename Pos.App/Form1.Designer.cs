@@ -31,6 +31,7 @@
             button1 = new Button();
             comboBox1 = new ComboBox();
             textBox1 = new TextBox();
+            lblDisplay = new Label();
             SuspendLayout();
             // 
             // button1
@@ -50,6 +51,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(151, 28);
             comboBox1.TabIndex = 1;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // textBox1
             // 
@@ -59,11 +61,21 @@
             textBox1.TabIndex = 2;
             textBox1.Text = "Hello world";
             // 
+            // lblDisplay
+            // 
+            lblDisplay.AutoSize = true;
+            lblDisplay.Location = new Point(184, 60);
+            lblDisplay.Name = "lblDisplay";
+            lblDisplay.Size = new Size(122, 20);
+            lblDisplay.TabIndex = 3;
+            lblDisplay.Text = "Selected product";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblDisplay);
             Controls.Add(textBox1);
             Controls.Add(comboBox1);
             Controls.Add(button1);
@@ -80,5 +92,6 @@
         private Button button1;
         private ComboBox comboBox1;
         private TextBox textBox1;
+        private Label lblDisplay;
     }
 }
