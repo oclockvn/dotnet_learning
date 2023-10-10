@@ -28,12 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ProductListForm";
+            lvProducts = new ListView();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
+            btnClear = new Button();
+            btnAdd = new Button();
+            statusStrip1 = new StatusStrip();
+            lblStatus = new ToolStripStatusLabel();
+            button1 = new Button();
+            button2 = new Button();
+            statusStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // lvProducts
+            // 
+            lvProducts.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lvProducts.Location = new Point(12, 80);
+            lvProducts.Name = "lvProducts";
+            lvProducts.Size = new Size(776, 337);
+            lvProducts.TabIndex = 0;
+            lvProducts.UseCompatibleStateImageBehavior = false;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(12, 12);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(381, 27);
+            txtSearch.TabIndex = 1;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(399, 10);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(94, 29);
+            btnSearch.TabIndex = 2;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(499, 11);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(94, 29);
+            btnClear.TabIndex = 3;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.Location = new Point(694, 10);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(94, 29);
+            btnAdd.TabIndex = 4;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatus });
+            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.TabIndex = 5;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // lblStatus
+            // 
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(0, 16);
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.Location = new Point(694, 45);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 6;
+            button1.Text = "Grid view";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.Location = new Point(594, 45);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 7;
+            button2.Text = "Detail view";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // ProductListForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(statusStrip1);
+            Controls.Add(btnAdd);
+            Controls.Add(btnClear);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
+            Controls.Add(lvProducts);
+            Name = "ProductListForm";
+            Text = "POS";
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ListView lvProducts;
+        private TextBox txtSearch;
+        private Button btnSearch;
+        private Button btnClear;
+        private Button btnAdd;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel lblStatus;
+        private Button button1;
+        private Button button2;
     }
 }
