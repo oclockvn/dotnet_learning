@@ -12,5 +12,8 @@
         public int UnitsOnOrder { get; set; }
         public int ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
+
+        public string CategoryName { get; set; } = null!;
+        public string SupplierName { get; set; } = null!;
     }
 }

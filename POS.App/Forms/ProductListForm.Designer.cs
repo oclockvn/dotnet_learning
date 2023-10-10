@@ -135,6 +135,7 @@
             MinimumSize = new Size(800, 400);
             Name = "ProductListForm";
             Text = "POS";
+            Load += ProductListForm_Load;
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             ResumeLayout(false);

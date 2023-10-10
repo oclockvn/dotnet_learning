@@ -15,8 +15,11 @@ namespace POS.Lib.Services
         {
             var connection = GetConnection();
             var sql = """
-                SELECT [ProductID] as Id, [ProductName], [SupplierID], [CategoryID], [QuantityPerUnit], [UnitPrice], [UnitsInStock], [UnitsOnOrder], [ReorderLevel], [Discontinued]
-                FROM [Products]
+                SELECT p.[ProductID] as Id, p.[ProductName], p.[SupplierID], p.[CategoryID], p.[QuantityPerUnit], p.[UnitPrice], p.[UnitsInStock], p.[UnitsOnOrder], p.[ReorderLevel], p.[Discontinued],
+                c.CategoryName, s.CompanyName as SupplierName
+                FROM [Products] as p
+                join [Categories] as c on c.CategoryID = p.CategoryID
+                join [Suppliers] as s on s.SupplierID = p.SupplierID
                 """;
             var products = connection.Query<Product>(sql).ToList();
 
