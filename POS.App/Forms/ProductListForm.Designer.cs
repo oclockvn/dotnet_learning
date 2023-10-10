@@ -132,6 +132,7 @@
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
             Controls.Add(lvProducts);
+            MinimumSize = new Size(800, 400);
             Name = "ProductListForm";
             Text = "POS";
             statusStrip1.ResumeLayout(false);
