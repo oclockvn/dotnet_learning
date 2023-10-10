@@ -1,14 +1,6 @@
 ﻿using POS.Lib.Models;
 using POS.Lib.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace POS.App.Forms
 {
@@ -20,10 +12,7 @@ namespace POS.App.Forms
         {
             InitializeComponent();
             AddListViewHeaders();
-            lvProducts.View = View.Details;
-            lvProducts.MultiSelect = false;
-            lvProducts.GridLines = true;
-            lvProducts.FullRowSelect = true;
+            ConfigureListView();
         }
 
         private void ProductListForm_Load(object sender, EventArgs e)
@@ -59,30 +48,32 @@ namespace POS.App.Forms
 
         private void AddListViewHeaders()
         {
-            var colId = MakeColumn("Id");
-            var colName = MakeColumn("Product name", 300);
-            var colPrice = MakeColumn("Price", 100);
-            var colStock = MakeColumn("Stock unit", 100);
-            var colOrder = MakeColumn("Order unit", 100);
-            var colCategory = MakeColumn("Category", 200);
-            var colSupplier = MakeColumn("Supplier", 200);
-
-            lvProducts.Columns.Add(colId);
-            lvProducts.Columns.Add(colName);
-            lvProducts.Columns.Add(colPrice);
-            lvProducts.Columns.Add(colStock);
-            lvProducts.Columns.Add(colOrder);
-            lvProducts.Columns.Add(colCategory);
-            lvProducts.Columns.Add(colSupplier);
+            MakeColumn("Id");
+            MakeColumn("Product name", 300);
+            MakeColumn("Price", 100, HorizontalAlignment.Right);
+            MakeColumn("Stock unit", 100, HorizontalAlignment.Right);
+            MakeColumn("Order unit", 100, HorizontalAlignment.Right);
+            MakeColumn("Category", 200);
+            MakeColumn("Supplier", 200);
         }
 
-        private ColumnHeader MakeColumn(string name, int width = 60)
+        private void MakeColumn(string name, int width = 60, HorizontalAlignment textAlign = HorizontalAlignment.Left)
         {
-            var col = new ColumnHeader();
-            col.Text = name;
-            col.Width = width;
+            var col = new ColumnHeader
+            {
+                Text = name,
+                Width = width,
+                TextAlign = textAlign,
+            };
+            lvProducts.Columns.Add(col);
+        }
 
-            return col;
+        private void ConfigureListView()
+        {
+            lvProducts.View = View.Details;
+            lvProducts.MultiSelect = false;
+            lvProducts.GridLines = true;
+            lvProducts.FullRowSelect = true;
         }
     }
 }
