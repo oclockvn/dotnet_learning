@@ -1,5 +1,6 @@
 ﻿using POS.Lib.Models;
 using POS.Lib.Services;
+using System.Diagnostics;
 
 namespace POS.App.Forms
 {
@@ -51,8 +52,21 @@ namespace POS.App.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            SearchProducts();
+        }
+
+        private void SearchProducts()
+        {
             var keyword = txtSearch.Text.Trim();
             LoadProductList($"%{keyword}%");
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchProducts();
+            }
         }
     }
 }

@@ -101,6 +101,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(381, 27);
             txtSearch.TabIndex = 1;
+            txtSearch.KeyPress += txtSearch_KeyPress;
             // 
             // btnSearch
             // 
