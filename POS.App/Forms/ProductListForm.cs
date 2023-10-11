@@ -16,6 +16,7 @@ namespace POS.App.Forms
         private void ProductListForm_Load(object sender, EventArgs e)
         {
             LoadProductList();
+            txtSearch.TabIndex = 0;
         }
 
         private void RenderProductListView(List<Product> products)
@@ -42,8 +43,14 @@ namespace POS.App.Forms
             txtSearch.Clear();
         }
 
-        private void LoadProductList(string? search = null)
+        private void LoadProductList()
         {
+            var search = txtSearch.Text.Trim();
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = $"%{search}%";
+            }
+
             lblStatus.Text = "Loading products...";
             var products = productService.GetProductList(search);
             RenderProductListView(products);
@@ -52,20 +59,14 @@ namespace POS.App.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchProducts();
-        }
-
-        private void SearchProducts()
-        {
-            var keyword = txtSearch.Text.Trim();
-            LoadProductList($"%{keyword}%");
+            LoadProductList();
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                SearchProducts();
+                LoadProductList();
             }
         }
     }
