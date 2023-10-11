@@ -1,6 +1,5 @@
 ﻿using POS.Lib.Models;
 using POS.Lib.Services;
-using System.Data;
 
 namespace POS.App.Forms
 {
@@ -42,7 +41,7 @@ namespace POS.App.Forms
             txtSearch.Clear();
         }
 
-        private void LoadProductList(string search = null)
+        private void LoadProductList(string? search = null)
         {
             lblStatus.Text = "Loading products...";
             var products = productService.GetProductList(search);
