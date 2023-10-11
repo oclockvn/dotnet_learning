@@ -15,9 +15,7 @@ namespace POS.App.Forms
 
         private void ProductListForm_Load(object sender, EventArgs e)
         {
-            var products = productService.GetProductList();
-            // Render to listview
-            RenderProductListView(products);
+            LoadProductList();
         }
 
         private void RenderProductListView(List<Product> products)
@@ -36,6 +34,19 @@ namespace POS.App.Forms
 
                 lvProducts.Items.Add(item);
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            LoadProductList();
+        }
+
+        private void LoadProductList()
+        {
+            lblStatus.Text = "Loading products...";
+            var products = productService.GetProductList();
+            RenderProductListView(products);
+            //lblStatus.Text = "";
         }
     }
 }
