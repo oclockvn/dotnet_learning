@@ -1,5 +1,6 @@
 ﻿namespace Pos.App
 {
+    // 
     public class Product
     {
         public int Id { get; set; }
