@@ -15,6 +15,8 @@ namespace POS.App.Forms
 
         private void ProductListForm_Load(object sender, EventArgs e)
         {
+            var products = productService.GetProductList();
+            // Render to listview
         }
     }
 }
