@@ -17,6 +17,25 @@ namespace POS.App.Forms
         {
             var products = productService.GetProductList();
             // Render to listview
+            RenderProductListView(products);
+        }
+
+        private void RenderProductListView(List<Product> products)
+        {
+            lvProducts.Items.Clear();
+            foreach (var p in products)
+            {
+                var item = new ListViewItem(p.Id.ToString());
+                item.Tag = p;
+                item.SubItems.Add(p.ProductName);
+                item.SubItems.Add(p.UnitPrice.ToString());
+                item.SubItems.Add(p.UnitsInStock.ToString());
+                item.SubItems.Add(p.UnitsOnOrder.ToString());
+                item.SubItems.Add(p.CategoryName);
+                item.SubItems.Add(p.SupplierName);
+
+                lvProducts.Items.Add(item);
+            }
         }
     }
 }

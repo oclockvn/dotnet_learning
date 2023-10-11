@@ -13,7 +13,22 @@ namespace POS.Lib.Services
     {
         public List<Product> GetProductList()
         {
-            return null;
+            var connection = GetConnection();
+            var sql = """
+                SELECT p.[ProductID] as Id, p.[ProductName], p.[SupplierID], p.[CategoryID], p.[QuantityPerUnit], p.[UnitPrice], p.[UnitsInStock], p.[UnitsOnOrder], p.[ReorderLevel], p.[Discontinued],
+                c.CategoryName, s.CompanyName as SupplierName
+                FROM [Products] as p
+                join [Categories] as c on c.CategoryID = p.CategoryID
+                join [Suppliers] as s on s.SupplierID = p.SupplierID
+                """;
+            var products = connection.Query<Product>(sql).ToList();
+
+            return products;
+        }
+
+        private SqlConnection GetConnection()
+        {
+            return new SqlConnection("Server=localhost;Database=northwind;User Id=sa; Password=Admin@123456;MultipleActiveResultSets=true;TrustServerCertificate=True");
         }
     }
 }
