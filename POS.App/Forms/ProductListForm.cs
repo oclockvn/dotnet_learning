@@ -39,14 +39,21 @@ namespace POS.App.Forms
         private void btnClear_Click(object sender, EventArgs e)
         {
             LoadProductList();
+            txtSearch.Clear();
         }
 
-        private void LoadProductList()
+        private void LoadProductList(string search = null)
         {
             lblStatus.Text = "Loading products...";
-            var products = productService.GetProductList();
+            var products = productService.GetProductList(search);
             RenderProductListView(products);
             //lblStatus.Text = "";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var keyword = txtSearch.Text.Trim();
+            LoadProductList($"%{keyword}%");
         }
     }
 }

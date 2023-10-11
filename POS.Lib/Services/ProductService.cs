@@ -11,7 +11,7 @@ namespace POS.Lib.Services
 {
     public class ProductService
     {
-        public List<Product> GetProductList()
+        public List<Product> GetProductList(string keyword = null)
         {
             var connection = GetConnection();
             var sql = """
@@ -21,7 +21,18 @@ namespace POS.Lib.Services
                 join [Categories] as c on c.CategoryID = p.CategoryID
                 join [Suppliers] as s on s.SupplierID = p.SupplierID
                 """;
-            var products = connection.Query<Product>(sql).ToList();
+
+            var parameter = new
+            {
+                keyword = keyword,
+            };
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                sql += " where p.ProductName like @keyword";
+            }
+
+            var products = connection.Query<Product>(sql, parameter).ToList();
 
             return products;
         }
